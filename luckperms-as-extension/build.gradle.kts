@@ -6,7 +6,7 @@ plugins {
     `extension-conventions`
 }
 
-version = "0.1.0"
+version = "0.1.1"
 
 dependencies {
     implementation("dev.lu15:luckperms-minestom:5.4-SNAPSHOT")
