@@ -1,7 +1,7 @@
 package io.github.ynverxe.hexserver.luckperms;
 
-import io.github.ynverxe.hexserver.HexServer;
-import io.github.ynverxe.hexserver.extension.HexExtension;
+import com.github.ynverxe.hexserver.HexServer;
+import com.github.ynverxe.hexserver.extension.HexExtension;
 import io.github.ynverxe.hexserver.luckperms.config.ConfigurateConfigAdapter;
 import me.lucko.luckperms.minestom.CommandRegistry;
 import me.lucko.luckperms.minestom.LuckPermsMinestom;
