@@ -25,6 +25,10 @@ tasks.named<RunHexServerTask>("runHexServer") {
     workingDir("run")
     serverJarProviderTask("generateLauncher")
     addExtensionFromTask("shadowJar")
+
+    if (project.name != "testing-helper") {
+        addExtensionFromTask(":testing-helper:shadowJar")
+    }
 }
 
 repositories {
