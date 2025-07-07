@@ -17,6 +17,7 @@ public class ListWorldsCommand extends Command {
     HexWorldManager worldManager = extension.worldManager();
     MessageHandler messageHandler = extension.messageHandler();
 
+    // TODO: List worlds per manager
     addSyntax((sender, context) -> {
       Component header = messageHandler.find("list-worlds.header", "{count}", worldManager.count());
       sender.sendMessage(header);
