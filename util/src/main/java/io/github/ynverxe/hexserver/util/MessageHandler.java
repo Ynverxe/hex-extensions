@@ -2,6 +2,8 @@ package io.github.ynverxe.hexserver.util;
 
 import io.github.ynverxe.configuratehelper.handler.FastConfiguration;
 import io.github.ynverxe.configuratehelper.handler.source.URLConfigurationFactory;
+import java.lang.module.Configuration;
+import java.util.Arrays;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.PatternReplacementResult;
 import net.kyori.adventure.text.TextComponent;
@@ -26,7 +28,16 @@ public final class MessageHandler {
 
     this.nodeProvider = () -> {
       ConfigurationNode node = nodeProvider.get();
-      return Objects.requireNonNullElseGet(node, BasicConfigurationNode::root).node((Object[]) nodePath.split("\\."));
+
+      ConfigurationNode root = Objects.requireNonNullElseGet(node, BasicConfigurationNode::root);
+
+      String[] split = nodePath.split("\\.");
+
+      if (split.length == 0 || nodePath.isEmpty()) {
+        return root;
+      }
+
+      return root.node((Object[]) split);
     };
   }
 
@@ -50,7 +61,7 @@ public final class MessageHandler {
     Object[] separatedPath = path.split("\\.");
 
     Object found = root().node(separatedPath).raw();
-
+    System.out.println(found);
     Component message;
     if (found instanceof String) {
       message = MiniMessage.miniMessage().deserialize(Objects.toString(found));
