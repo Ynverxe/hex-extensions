@@ -61,7 +61,7 @@ public final class MessageHandler {
     Object[] separatedPath = path.split("\\.");
 
     Object found = root().node(separatedPath).raw();
-    System.out.println(found);
+
     Component message;
     if (found instanceof String) {
       message = MiniMessage.miniMessage().deserialize(Objects.toString(found));
